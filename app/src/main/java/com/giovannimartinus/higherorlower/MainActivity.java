@@ -26,15 +26,22 @@ public class MainActivity extends AppCompatActivity {
          *  are met
          */
         if (randomGuess == randomNumber) {
-            Toast.makeText(MainActivity.this, "You guessed correctly!", Toast.LENGTH_SHORT).show();
-        } else if (randomGuess > randomNumber){
-            Toast.makeText(MainActivity.this, "Lower", Toast.LENGTH_SHORT).show();
-        } else if (randomGuess < randomNumber) {
-            Toast.makeText(MainActivity.this, "Higher", Toast.LENGTH_SHORT).show();
-        }
 
-        /* generate a message for the end user */
-        Toast.makeText(MainActivity.this, guessEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "You guessed correctly!", Toast.LENGTH_SHORT).show();
+
+            /* generate a new random integer if statement is met */
+            Random rand = new Random();
+            randomNumber = rand.nextInt(21) + 1;
+
+        } else if (randomGuess > randomNumber){
+
+            Toast.makeText(MainActivity.this, "Lower", Toast.LENGTH_SHORT).show();
+
+        } else if (randomGuess < randomNumber) {
+
+            Toast.makeText(MainActivity.this, "Higher", Toast.LENGTH_SHORT).show();
+
+        }
 
     }
 

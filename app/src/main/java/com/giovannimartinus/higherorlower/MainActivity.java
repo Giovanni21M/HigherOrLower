@@ -13,12 +13,20 @@ public class MainActivity extends AppCompatActivity {
     /* define a variable outside of a method for other methods to use it */
     int randomNumber;
 
+    /* generate a Toast function - less clunky */
+    public void makeToast(String string) {
+
+        Toast.makeText(MainActivity.this, string, Toast.LENGTH_SHORT).show();
+        
+    }
+
     /* generate a function when guessButton is clicked */
     public void guessClick(View view) {
 
         /* get the text the end user input */
         EditText guessEditText = (EditText) findViewById(R.id.guessEditText);
 
+        /* convert guessEditText to an integer */
         int randomGuess = Integer.parseInt(guessEditText.getText().toString());
 
         /** create a series of if/else if statements
@@ -27,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
          */
         if (randomGuess == randomNumber) {
 
-            Toast.makeText(MainActivity.this, "You guessed correctly! Try again!", Toast.LENGTH_SHORT).show();
+            /* use the makeToast function to generate a message to the end user */
+            makeToast("You guessed correctly! Try again!");
 
             /* generate a new random integer if statement is met */
             Random rand = new Random();
@@ -35,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (randomGuess > randomNumber){
 
-            Toast.makeText(MainActivity.this, "Lower", Toast.LENGTH_SHORT).show();
+            makeToast("Lower");
 
         } else if (randomGuess < randomNumber) {
 
-            Toast.makeText(MainActivity.this, "Higher", Toast.LENGTH_SHORT).show();
+            makeToast("Higher");
 
         }
 
@@ -58,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         /* initialize a random object */
         Random rand = new Random();
         /* generate a random integer from 1-20*/
-        randomNumber = rand.nextInt(21) + 1;
+        randomNumber = rand.nextInt(20) + 1;
 
     }
 }

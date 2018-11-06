@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
          */
         if (randomGuess == randomNumber) {
 
-            Toast.makeText(MainActivity.this, "You guessed correctly!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "You guessed correctly! Try again!", Toast.LENGTH_SHORT).show();
 
             /* generate a new random integer if statement is met */
             Random rand = new Random();
